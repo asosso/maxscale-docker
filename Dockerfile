@@ -8,7 +8,6 @@ RUN     rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB && \
         yum clean all && \
         cp /usr/local/skysql/maxscale/etc/MaxScale_template.cnf /usr/local/skysql/maxscale/etc/MaxScale.cnf
 
-
 # ENVironment variable
 ENV MAXSCALE_HOME /usr/local/skysql/maxscale
 
