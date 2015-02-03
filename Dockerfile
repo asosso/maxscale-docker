@@ -15,10 +15,18 @@ ENV MAXSCALE_HOME /usr/local/skysql/maxscale
 VOLUME  ["/usr/local/skysql/maxscale"]
 
 # EXPOSE default MaxScale ports
-EXPOSE 4006 # RW Split Listener
-EXPOSE 4008 # Read Connection Listener
-EXPOSE 4442 # Debug Listener
-EXPOSE 6603 # CLI Listener
+
+## RW Split Listener
+EXPOSE 4006
+
+## Read Connection Listener
+EXPOSE 4008
+
+## Debug Listener
+EXPOSE 4442 
+
+## CLI Listener
+EXPOSE 6603 
 
 # The binary that is being executed
 ENTRYPOINT ["/usr/local/skysql/maxscale/bin/maxscale", "-d"]
