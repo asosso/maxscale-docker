@@ -2,19 +2,20 @@ FROM centos:centos6
 MAINTAINER Andrea Sosso <andrea.sosso@dnshosting.it>
 
 RUN     rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB && \
+		yum -y install https://downloads.mariadb.com/enterprise/yzsw-dthq/generate/10.0/mariadb-enterprise-repository.rpm && \
         yum -y update && \
-        yum -y install libedit libaio && \
-        rpm -ivh https://downloads.mariadb.com/files/SkySQL/MaxScale/maxscale-1.0.4/RPM/centos6/maxscale-1.0.4-stable.rpm && \
-        yum clean all && \
-        cp /usr/local/skysql/maxscale/etc/MaxScale_template.cnf /usr/local/skysql/maxscale/etc/MaxScale.cnf
+        yum -y install maxscale && \
+        yum clean all
 
-# ENVironment variable
-ENV MAXSCALE_HOME /usr/local/skysql/maxscale
+# Move configuration file in directory for exports
+RUN     mkdir -p /etc/maxscale.d && \
+        mv /etc/maxscale.cnf /etc/maxscale.d && \
+        ln -s /etc/maxscale.d/maxscale.cnf /etc/maxscale.cnf
 
-# VOLUMEs to allow backup of config
-VOLUME  ["/usr/local/skysql/maxscale"]
+# VOLUME for custom configuration
+VOLUME ["/etc/maxscale.d"]
 
-# EXPOSE default MaxScale ports
+# EXPOSE the MaxScale default ports
 
 ## RW Split Listener
 EXPOSE 4006
@@ -28,5 +29,5 @@ EXPOSE 4442
 ## CLI Listener
 EXPOSE 6603 
 
-# The binary that is being executed
-ENTRYPOINT ["/usr/local/skysql/maxscale/bin/maxscale", "-d"]
+# Running MaxScale
+ENTRYPOINT ["/usr/bin/maxscale", "-d"]
