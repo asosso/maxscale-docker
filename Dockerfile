@@ -5,7 +5,7 @@ RUN rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB \
     && yum -y install https://downloads.mariadb.com/enterprise/yzsw-dthq/generate/10.0/mariadb-enterprise-repository.rpm \
     && yum -y update \
     && yum deplist maxscale | grep provider | awk '{print $2}' | sort | uniq | grep -v maxscale | sed ':a;N;$!ba;s/\n/ /g' | xargs yum -y install \
-    && rpm -Uvh https://downloads.mariadb.com/enterprise/yzsw-dthq/mariadb-maxscale/1.3.0/rhel/7/x86_64/maxscale-1.3.0-1.rhel7.x86_64.rpm \
+    && rpm -Uvh https://downloads.mariadb.com/enterprise/yzsw-dthq/mariadb-maxscale/1.4.1/rhel/7/x86_64/maxscale-1.4.1-1.rhel_7.x86_64.rpm \
     && yum clean all \
     && rm -rf /tmp/*
 
