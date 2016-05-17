@@ -33,7 +33,7 @@ To create the image `asosso/maxscale`, execute the following command on the maxs
 ## Thanks
 
 * [MaxScale](https://github.com/mariadb-corporation/MaxScale) - for its MySQL Proxy
-* [@MassimilianoPinto](https://github.com/MassimilianoPinto) - for his collaboration with my company
+* [@MassimilianoPinto](https://github.com/MassimilianoPinto) - for his collaboration
 
 ## Contribute
 
