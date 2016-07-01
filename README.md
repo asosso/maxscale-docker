@@ -3,6 +3,8 @@ maxscale-docker
 
 This project is a Docker container for MaxScale. 
 
+[![](https://imagelayers.io/badge/asosso/maxscale:latest.svg)](https://imagelayers.io/?images=asosso/maxscale:latest 'ImageLayers') [![Docker Repository on Quay](https://quay.io/repository/asosso/maxscale/status "Docker Repository on Quay")](https://quay.io/repository/asosso/maxscale)
+
 Base [docker image](http://www.docker.io) to run a [MaxScale](https://mariadb.com/products/mariadb-maxscale) server
 
     MariaDB MaxScale is an open-source, database-centric proxy that works with MariaDB Enterprise, MariaDB Enterprise Cluster, MariaDB 5.5, MariaDB 10 and Oracle MySQL®. 
