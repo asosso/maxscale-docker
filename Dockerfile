@@ -1,12 +1,13 @@
 FROM centos:7
 MAINTAINER Andrea Sosso <andrea@sosso.me>
 
-ENV MAXSCALE_VERSION 1.4.3
+ENV MAXSCALE_URL https://downloads.mariadb.com/enterprise/yzsw-dthq/mariadb-maxscale/1.2.1/rhel/7/x86_64/maxscale-1.2.1-1.rhel7.x86_64.rpm
 
 RUN rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB \
     && yum -y install https://downloads.mariadb.com/enterprise/yzsw-dthq/generate/10.0/mariadb-enterprise-repository.rpm \
     && yum -y update \
-    && yum -y install maxscale-$MAXSCALE_VERSION \
+    && yum deplist maxscale | grep provider | awk '{print $2}' | sort | uniq | grep -v maxscale | sed ':a;N;$!ba;s/\n/ /g' | xargs yum -y install \
+    && rpm -Uvh $MAXSCALE_URL \
     && yum clean all \
     && rm -rf /tmp/*
 
