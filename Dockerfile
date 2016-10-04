@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Andrea Sosso <andrea@sosso.me>
 
-ENV MAXSCALE_VERSION 1.4.3
+ENV MAXSCALE_VERSION 2.0.1
 
 RUN rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB \
     && yum -y install https://downloads.mariadb.com/enterprise/yzsw-dthq/generate/10.0/mariadb-enterprise-repository.rpm \
