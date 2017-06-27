@@ -1,7 +1,7 @@
 FROM centos:7
-MAINTAINER Andrea Sosso <andrea@sosso.me>
+MAINTAINER Jaehoon Choi <plaintext@andromedarabbit.net>
 
-ENV MAXSCALE_URL https://downloads.mariadb.com/enterprise/5y6w-djjg/mariadb-maxscale/2.0.4/rhel/7/x86_64/maxscale-2.0.4-1.rhel.7.x86_64.rpm
+ENV MAXSCALE_URL https://downloads.mariadb.com/MaxScale/2.1.3/rhel/7/x86_64/maxscale-2.1.3-1.rhel.7.x86_64.rpm
 
 RUN rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB \
     && yum -y install https://downloads.mariadb.com/enterprise/yzsw-dthq/generate/10.0/mariadb-enterprise-repository.rpm \

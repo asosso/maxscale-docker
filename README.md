@@ -3,7 +3,9 @@ maxscale-docker
 
 This project is a Docker container for MaxScale. 
 
-[![](https://imagelayers.io/badge/asosso/maxscale:latest.svg)](https://imagelayers.io/?images=asosso/maxscale:latest 'ImageLayers') [![Docker Repository on Quay](https://quay.io/repository/asosso/maxscale/status "Docker Repository on Quay")](https://quay.io/repository/asosso/maxscale)
+[![](https://images.microbadger.com/badges/image/andromedarabbit/maxscale.svg)](https://microbadger.com/images/andromedarabbit/maxscale "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/license/andromedarabbit/maxscale.svg)](https://microbadger.com/images/andromedarabbit/maxscale "Get your own license badge on microbadger.com")
+
 
 Base [docker image](http://www.docker.io) to run a [MaxScale](https://mariadb.com/products/mariadb-maxscale) server
 
@@ -16,7 +18,7 @@ Base [docker image](http://www.docker.io) to run a [MaxScale](https://mariadb.co
 
 The container is very small and available on the Docker Index:
 
-    docker pull asosso/maxscale
+    docker pull andromedarabbit/maxscale
 
 ## Using the container
 
@@ -24,13 +26,13 @@ Just trying out MaxScale.
 
 If you just want to run a single instance of MaxScale server to try out its functionality:
 
-    docker run -d asosso/maxscale
+    docker run -d andromedarabbit/maxscale
 
 ## Build the container
 
-To create the image `asosso/maxscale`, execute the following command on the maxscale-docker folder:
+To create the image `andromedarabbit/maxscale`, execute the following command on the maxscale-docker folder:
 
-    docker build -t asosso/maxscale .
+    docker build -t andromedarabbit/maxscale .
 
 ## Thanks
 
