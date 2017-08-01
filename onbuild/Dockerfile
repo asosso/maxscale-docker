@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Jaehoon Choi <plaintext@andromedarabbit.net>
 
-ONBUILD ARG MAXSCALE_URL=https://downloads.mariadb.com/MaxScale/2.1.3/rhel/7/x86_64/maxscale-2.1.3-1.rhel.7.x86_64.rpm
+ENV MAXSCALE_URL https://downloads.mariadb.com/MaxScale/2.1.5/rhel/7/x86_64/maxscale-2.1.5-1.rhel.7.x86_64.rpm
 ONBUILD ENV MAXSCALE_URL $MAXSCALE_URL
 
 ONBUILD RUN rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB \
