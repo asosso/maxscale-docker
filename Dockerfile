@@ -33,6 +33,9 @@ EXPOSE 4442
 ## CLI Listener
 EXPOSE 6603
 
+RUN chown root:maxscale /etc/maxscale.d/maxscale.cnf
+RUN chmod g+w /etc/maxscale.d/maxscale.cnf
+
 USER maxscale
 # Running MaxScale
 ENTRYPOINT ["/usr/bin/maxscale", "-d"]
