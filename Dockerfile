@@ -33,5 +33,6 @@ EXPOSE 4442
 ## CLI Listener
 EXPOSE 6603
 
+USER maxscale
 # Running MaxScale
 ENTRYPOINT ["/usr/bin/maxscale", "-d"]
