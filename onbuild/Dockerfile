@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Andrea Sosso <andrea@sosso.me>
 
-ENV MAXSCALE_VERSION 2.1.11
+ENV MAXSCALE_VERSION 2.1.16
 ENV MAXSCALE_URL https://downloads.mariadb.com/MaxScale/${MAXSCALE_VERSION}/rhel/7/x86_64/maxscale-${MAXSCALE_VERSION}-1.rhel.7.x86_64.rpm
 
 ONBUILD ENV MAXSCALE_VERSION $MAXSCALE_VERSION
@@ -17,10 +17,14 @@ ONBUILD RUN curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | 
 # Move configuration file in directory for exports
 ONBUILD RUN mkdir -p /etc/maxscale.d \
     && cp /etc/maxscale.cnf.template /etc/maxscale.d/maxscale.cnf \
-    && ln -sf /etc/maxscale.d/maxscale.cnf /etc/maxscale.cnf
+    && ln -sf /etc/maxscale.d/maxscale.cnf /etc/maxscale.cnf \
+    && chown root:maxscale /etc/maxscale.d/maxscale.cnf \
+    && chmod g+w /etc/maxscale.d/maxscale.cnf
 
 # VOLUME for custom configuration
 VOLUME ["/etc/maxscale.d"]
+
+USER maxscale
 
 # EXPOSE the MaxScale default ports
 
