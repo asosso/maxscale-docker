@@ -14,12 +14,13 @@ ONBUILD RUN curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | 
     && yum clean all \
     && rm -rf /tmp/*
 
-# Move configuration file in directory for exports
+# Move configuration file in directory for exports and enable maxadmin cli
 ONBUILD RUN mkdir -p /etc/maxscale.d \
     && cp /etc/maxscale.cnf.template /etc/maxscale.d/maxscale.cnf \
     && ln -sf /etc/maxscale.d/maxscale.cnf /etc/maxscale.cnf \
     && chown root:maxscale /etc/maxscale.d/maxscale.cnf \
-    && chmod g+w /etc/maxscale.d/maxscale.cnf
+    && chmod g+w /etc/maxscale.d/maxscale.cnf \
+    && echo '[{"name": "root", "account": "admin", "password": ""}, {"name": "maxscale", "account": "admin", "password": ""}]' > /var/lib/maxscale/maxadmin-users
 
 # VOLUME for custom configuration
 VOLUME ["/etc/maxscale.d"]

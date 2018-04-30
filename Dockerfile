@@ -11,7 +11,7 @@ RUN curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash -s 
     && yum clean all \
     && rm -rf /tmp/*
 
-# Move configuration file in directory for exports
+# Move configuration file in directory for exports and enable maxadmin cli
 RUN mkdir -p /etc/maxscale.d \
     && cp /etc/maxscale.cnf.template /etc/maxscale.d/maxscale.cnf \
     && ln -sf /etc/maxscale.d/maxscale.cnf /etc/maxscale.cnf \
